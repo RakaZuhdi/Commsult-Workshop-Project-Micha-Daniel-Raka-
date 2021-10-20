@@ -5,14 +5,14 @@ import sensor.Temperature;
 public class AirConditioner extends AbstractActor implements Actor {
 
 	public AirConditioner(Boolean status) {
-		this.status = status;
+		this.active = status;
 	}
 
 	public void checkStatus(Temperature temp) {
 		if (temp.getInfo() > temp.getLimit()) {
-			setStatus(true);
+			setActive(true);
 		} else {
-			setStatus(false);
+			setActive(false);
 		}
 	}
 

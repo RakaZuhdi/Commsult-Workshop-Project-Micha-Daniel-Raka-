@@ -7,18 +7,18 @@ import sensor.Wind;
 public class Blinder extends AbstractActor implements Actor {
 
 	public Blinder(Boolean status) {
-		this.status = status;
+		this.active = status;
 	}
 
 	public void checkStatus(Wind windSpeed, Time time) {
 		if (windSpeed.getInfo() > windSpeed.getLimit()) {
-			setStatus(true);
+			setActive(true);
 		} else {
-			setStatus(false);
+			setActive(false);
 		}
 
 		if (time.isNightTime()) {
-			setStatus(true);
+			setActive(true);
 		}
 	}
 }
