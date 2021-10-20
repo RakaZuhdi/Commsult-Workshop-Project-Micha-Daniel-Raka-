@@ -1,9 +1,11 @@
-package World;
+package world;
+import sensor.*;
 
 public class WorldRunner {
 
 	public static void main(String[] args) {
-		System.out.println(new Wind(0, 100).generateValue());
+		Time time = new Time(0);
+		time.start();
 
 	}
 
