@@ -11,8 +11,11 @@ public class Wind {
 		this.min = min;
 	}
 	
-	public int getInfo() {
+	public void update() {
 		this.windSpeed = (int) ((Math.random() * (max - min)) + min);
+	}
+	
+	public int getInfo() {
 		return this.windSpeed;
 	}
 	

@@ -11,8 +11,11 @@ public class Temperature {
 		this.min = min;
 	}
 	
-	public int getInfo() {
+	public void update() {
 		this.temperature = (int) ((Math.random() * (max - min)) + min);
+	}
+	
+	public int getInfo() {
 		return this.temperature;
 	}
 	
