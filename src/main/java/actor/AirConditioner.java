@@ -10,7 +10,7 @@ public class AirConditioner implements Actor {
 	}
 
 	public void checkStatus(Temperature temp) {
-		if (temp.getInfo() > 32) {
+		if (temp.getInfo() > temp.getLimit()) {
 			setStatus(true);
 		} else { 
 			setStatus(false);
@@ -27,9 +27,9 @@ public class AirConditioner implements Actor {
 	
 	public String getInfo() {
 		if(this.status) {
-			return "off";
-		}else {
 			return "on";
+		}else {
+			return "off";
 		}
 	}
 
