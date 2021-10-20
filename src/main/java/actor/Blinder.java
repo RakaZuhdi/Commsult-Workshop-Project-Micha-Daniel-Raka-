@@ -12,14 +12,14 @@ public class Blinder implements Actor {
 	}
 
 	public void checkStatus(Wind windSpeed, Time time) {
-		if (time.isNightTime()) {
+		if (windSpeed.getInfo() > 72) {
 			setStatus(true);
 		} else {
-			if (windSpeed.getInfo() > 72) {
-				setStatus(true);
-			} else {
-				setStatus(false);
-			}
+			setStatus(false);
+		}
+		
+		if (time.isNightTime()) {
+			setStatus(true);
 		}
 	}
 
@@ -33,9 +33,9 @@ public class Blinder implements Actor {
 
 	public String getInfo() {
 		if (this.status) {
-			return "off";
-		} else {
 			return "on";
+		} else {
+			return "off";
 		}
 	}
 }

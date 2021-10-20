@@ -15,7 +15,7 @@ public abstract class AbstractSensor {
 	
 	public void print() {
 		StringBuffer string = new StringBuffer();
-		string.append(this.value).append(" C");
+		string.append(this.value).append("");
 		System.out.println(string);
 	}
 

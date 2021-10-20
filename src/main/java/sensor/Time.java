@@ -16,7 +16,7 @@ public class Time implements Sensor {
 	}
 	
 	public Boolean isNightTime() {
-		if(this.time > 2) {
+		if(this.time > 15 || this.time < 6) {
 			return true;
 		}else {
 			return false;
