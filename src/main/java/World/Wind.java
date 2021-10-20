@@ -1,6 +1,6 @@
-package sensor;
+package world;
 
-public class Wind implements Sensor{
+public class Wind {
 	private int windSpeed;
 	private int max;
 	private int min;
@@ -11,7 +11,7 @@ public class Wind implements Sensor{
 		this.min = min;
 	}
 	
-	public int getInfo() {
+	public int generateValue() {
 		this.windSpeed = (int) ((Math.random() * (max - min)) + min);
 		return this.windSpeed;
 	}

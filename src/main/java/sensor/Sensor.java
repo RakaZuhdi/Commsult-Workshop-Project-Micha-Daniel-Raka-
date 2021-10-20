@@ -1,5 +1,6 @@
 package sensor;
 
 public interface Sensor {
-	public int getInfo();
+	public String getInfo();
+
 }
