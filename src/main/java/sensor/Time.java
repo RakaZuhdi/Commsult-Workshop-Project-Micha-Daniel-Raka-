@@ -14,4 +14,12 @@ public class Time implements Sensor {
 	public int getInfo() {
 		return this.time;
 	}
+	
+	public Boolean isNightTime() {
+		if(this.time > 2) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 }
