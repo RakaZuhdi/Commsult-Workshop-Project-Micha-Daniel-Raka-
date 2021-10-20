@@ -37,9 +37,9 @@ public class StartSensor extends TimerTask {
 	}
 	
 	public void print() {
-		System.out.println(this.time.getInfo());
-		System.out.println(this.wind.getInfo());
-		System.out.println(this.temp.getInfo());
+		System.out.print("Time: " + this.time.getInfo());
+		System.out.print("\t Windspeed: " + this.wind.getInfo());
+		System.out.println("\t Temperature " + this.temp.getInfo());
 	}
 	
 
