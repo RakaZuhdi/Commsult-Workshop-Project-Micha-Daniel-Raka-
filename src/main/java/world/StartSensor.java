@@ -27,12 +27,19 @@ public class StartSensor extends TimerTask {
 	
 	public void run() {
 		update();
+		print();
 	}
 	
 	public void update() {
 		this.time.update();
 		this.wind.update();
 		this.temp.update();
+	}
+	
+	public void print() {
+		System.out.println(this.time.getInfo());
+		System.out.println(this.wind.getInfo());
+		System.out.println(this.temp.getInfo());
 	}
 	
 
