@@ -36,12 +36,16 @@ public class StartSensor extends TimerTask {
 	public void update() {
 
 		this.wind.update();
-
 		this.temp.update(this.airConditioner);
 		this.time.update();
-
+		
+		
 		this.blinder.checkStatus(wind, time);
 		this.airConditioner.checkStatus(temp);
+		
+		
+
+		
 
 	}
 
