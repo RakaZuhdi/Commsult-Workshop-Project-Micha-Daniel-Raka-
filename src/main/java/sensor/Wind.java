@@ -1,4 +1,4 @@
-package world;
+package sensor;
 
 public class Wind {
 	private int windSpeed;
