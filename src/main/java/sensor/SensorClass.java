@@ -19,20 +19,18 @@ public class SensorClass {
 		this.formattedTime = formatTime(time);
 	}
 
-	public String formatTime (int time) {
+	public String formatTime(int time) {
 		String result = null;
 		int lineLength = String.valueOf(time).length();
-		
-		if(lineLength == 1) {
-			result = "0"+ Integer.toString(time) + ".00";
-		}else {
+
+		if (lineLength == 1) {
+			result = "0" + Integer.toString(time) + ".00";
+		} else {
 			result = Integer.toString(time) + ".00";
 		}
-		
+
 		return result;
 	}
-	
-	
 
 	public String getFormattedTime() {
 		return formattedTime;

@@ -247,9 +247,9 @@ public class Controller implements Initializable {
 				Date now = new Date();
 
 				series1.getData().add(
-						new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getWind().getInfo()));
+						new XYChart.Data<>(String.valueOf(sensor.getTime().getFormattedTime()), sensor.getWind().getInfo()));
 				series2.getData().add(
-						new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getTemp().getInfo()));
+						new XYChart.Data<>(String.valueOf(sensor.getTime().getFormattedTime()), sensor.getTemp().getInfo()));
 
 				// Table View
 				results.getItems().add(
@@ -259,8 +259,8 @@ public class Controller implements Initializable {
 						this.sensor.getAirConditioner().getInfo()));
 
 				
-				series1.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getWind().getInfo()));
-				series2.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getTemp().getInfo()));
+				//series1.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getWind().getInfo()));
+				//series2.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getTemp().getInfo()));
 
 				
 				//Table View
