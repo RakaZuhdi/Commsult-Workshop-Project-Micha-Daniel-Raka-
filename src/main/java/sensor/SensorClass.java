@@ -7,7 +7,8 @@ public class SensorClass {
 	public String blinds = null;
 	public String light = null;
 	public String airConditioner = null;
-	
+	public String formattedTime = null;
+
 	public SensorClass(int time, int wind, int temperature, String blinds, String light, String airConditioner) {
 		this.time = time;
 		this.wind = wind;
@@ -15,6 +16,30 @@ public class SensorClass {
 		this.blinds = blinds;
 		this.light = light;
 		this.airConditioner = airConditioner;
+		this.formattedTime = formatTime(time);
+	}
+
+	public String formatTime (int time) {
+		String result = null;
+		int lineLength = String.valueOf(time).length();
+		
+		if(lineLength == 1) {
+			result = "0"+ Integer.toString(time) + ".00";
+		}else {
+			result = Integer.toString(time) + ".00";
+		}
+		
+		return result;
+	}
+	
+	
+
+	public String getFormattedTime() {
+		return formattedTime;
+	}
+
+	public void setFormattedTime(String formattedTime) {
+		this.formattedTime = formattedTime;
 	}
 
 	public int getTime() {
@@ -64,9 +89,5 @@ public class SensorClass {
 	public void setAirConditioner(String airConditioner) {
 		this.airConditioner = airConditioner;
 	}
-	
-	
-	
-	
 
 }

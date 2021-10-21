@@ -219,7 +219,7 @@ public class Controller implements Initializable {
 		results.getColumns().addAll(timeColumn, windColumn, temperatureColumn, blinderColumn, lightColumn, airConditionerColumn);
 		
 		timeColumn.setMinWidth(9);
-		timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+		timeColumn.setCellValueFactory(new PropertyValueFactory<>("formattedTime"));
 		
 		windColumn.setCellValueFactory(new PropertyValueFactory<>("wind"));
 		windColumn.setText("Wind Speed (km/h)");;
