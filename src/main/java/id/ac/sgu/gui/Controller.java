@@ -28,6 +28,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
@@ -101,6 +102,28 @@ public class Controller implements Initializable {
 		}
 		return sensors;
 	}
+	
+	@FXML
+	private Line hourHand;
+	@FXML
+	private Line xxx;
+	private ArrayList<Integer> hourX = new ArrayList<Integer>();
+	private ArrayList<Integer> hourY = new ArrayList<Integer>();
+	private int i = 0;
+	
+	@FXML
+	private ImageView blindsIndicatorGreen;
+	@FXML
+	private ImageView lightsIndicatorGreen;
+	@FXML
+	private ImageView airconIndicatorGreen;
+	@FXML
+	private ImageView blindsIndicatorRed;
+	@FXML
+	private ImageView lightsIndicatorRed;
+	@FXML
+	private ImageView airconIndicatorRed;
+	
 
 	public void graphicsButtonClicked() {
 		graphicsPane.setVisible(true);
@@ -152,12 +175,39 @@ public class Controller implements Initializable {
 		hourY.add(15);
 	}
 	
-	public void hourMoves(int i) {
-		int TIMELINE_X_END = hourX.get(i);
-		int TIMELINE_Y_END = hourY.get(i);
-		hourHand.setEndX(TIMELINE_X_END);
-		hourHand.setEndY(TIMELINE_Y_END);
+	public void checkBlinds(args args) {
+		if(args args) {
+			blindsIndicatorGreen.setVisible(true);
+			blindsIndicatorRed.setVisible(false);
+		}
+		else {
+			blindsIndicatorGreen.setVisible(false);
+			blindsIndicatorRed.setVisible(true);
+		}
 	}
+	
+	public void checkLights() {
+		if(args args) {
+			lightsIndicatorGreen.setVisible(true);
+			lightsIndicatorRed.setVisible(false);
+		}
+		else {
+			lightsIndicatorGreen.setVisible(false);
+			lightsIndicatorRed.setVisible(true);
+		}
+	}
+	
+	public void checkAirCon() {
+		if(args args) {
+			airconIndicatorGreen.setVisible(true);
+			airconIndicatorRed.setVisible(false);
+		}
+		else {
+			airconIndicatorGreen.setVisible(false);
+			airconIndicatorRed.setVisible(true);
+		}
+	}
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -165,8 +215,7 @@ public class Controller implements Initializable {
 
 		ObservableList<SensorClass> data = FXCollections.observableArrayList();
 
-		results.getColumns().addAll(timeColumn, windColumn, temperatureColumn, blinderColumn, lightColumn,
-				airConditionerColumn);
+		results.getColumns().addAll(timeColumn, windColumn, temperatureColumn, blinderColumn, lightColumn, airConditionerColumn);
 		timeColumn.setMinWidth(9);
 		timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
 		windColumn.setCellValueFactory(new PropertyValueFactory<>("wind"));
@@ -210,19 +259,25 @@ public class Controller implements Initializable {
 //				
 				
 				//Analog clock View
-				int i = 0;
-				hourMoves(i);
-				i++;
-				if(i == 11) {
-					i = 0;
-				}
+//				hourHand.setEndX(hourX.get(i));
+//				hourHand.setEndY(hourY.get(i));
+//				i = i++;
+//				if (i == 11) {
+//					i = 0;
+//				}
 				
-				if (series1.getData().size() > WINDOW_SIZE)
+				checkBlinds();
+				checkLights();
+				checkAirCon();
+				
+				if (series1.getData().size() > WINDOW_SIZE) {
 					series1.getData().remove(0);
-
-				if (series2.getData().size() > WINDOW_SIZE)
+				}
+					
+				if (series2.getData().size() > WINDOW_SIZE) {
 					series2.getData().remove(0);
-
+				}
+					
 			});
 		}, 0, 1, TimeUnit.SECONDS);
 
