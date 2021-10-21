@@ -14,6 +14,8 @@ import actor.Blinder;
 import actor.Light;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -22,6 +24,9 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.*;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import sensor.Temperature;
@@ -66,10 +71,43 @@ public class Controller implements Initializable {
 	@FXML
 	private LineChart<String, Number> lineChart2;
 	@FXML
-	private Button button;
+	private Button exitButton;
 	private XYChart.Series<String, Number> series1 = new XYChart.Series<>();
 	private XYChart.Series<String, Number> series2 = new XYChart.Series<>();
+	@FXML
+	private TableView<StartSensor> results;
+	@FXML
+	private TableColumn<StartSensor, Time> timeColumn;
+	@FXML
+	private TableColumn<StartSensor, Wind> windColumn;
+	@FXML
+	private TableColumn<StartSensor, Temperature> temperatureColumn;
+	@FXML
+	private TableColumn<StartSensor, Blinder> blinderColumn;
+	@FXML
+	private TableColumn<StartSensor, Light> lightColumn;
+	@FXML
+	private TableColumn<StartSensor, AirConditioner> airConditionerColumn;
+	
+	timeColumn.setMinWidth(9);
+	timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+	windColumn.setCellValueFactory(new PropertyValueFactory<>("wind"));
+	temperatureColumn.setCellValueFactory(new PropertyValueFactory<>("temperature"));
+	blinderColumn.setCellValueFactory(new PropertyValueFactory<>("blinder"));
+	lightColumn.setCellValueFactory(new PropertyValueFactory<>("light"));
+	airConditionerColumn.setCellValueFactory(new PropertyValueFactory<>("airConditioner"));
+	
+	
+	// Get all of the Sensors
+	public ObservableList<StartSensor> getSensor(){
+		ObservableList<StartSensor> sensors = FXCollections.observableArrayList();
+		while(true) {
+			sensors.add(new StartSensor(sensor.getTime(), sensor.getWind(), sensor.getTemp(), sensor.getBlinder(), sensor.getAirConditioner(), sensor.getLight()));
+		}
+		return sensors;
+	}
 
+	
 	public void graphicsButtonClicked() {
 		graphicsPane.setVisible(true);
 		tablePane.setVisible(false);
@@ -87,6 +125,7 @@ public class Controller implements Initializable {
 		tablePane.setVisible(false);
 		controllerPane.setVisible(true);
 	}
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -105,6 +144,11 @@ public class Controller implements Initializable {
 				series1.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getWind().getInfo()));
 				series2.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getTemp().getInfo()));
 
+				
+				//Table View
+				results.setItems(getSensor());
+				results.getColumns().addAll(timeColumn, windColumn, temperatureColumn, blinderColumn, lightColumn, airConditionerColumn);
+				
 				
 				if (series1.getData().size() > WINDOW_SIZE)
 					series1.getData().remove(0);
