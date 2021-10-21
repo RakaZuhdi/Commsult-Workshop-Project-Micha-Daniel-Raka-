@@ -7,6 +7,9 @@ import java.util.ResourceBundle;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadLocalRandom;
 
+import actor.AirConditioner;
+import actor.Blinder;
+import actor.Light;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -18,9 +21,17 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import sensor.Temperature;
+import sensor.Time;
+import sensor.Wind;
+import world.StartSensor;
 
 public class Controller implements Initializable {
-	
+
+	public Controller() {
+		StartSensor start = new StartSensor(new Time(0), new Wind(0, 90, 72), new Temperature(0, 40, 20), new Blinder(false), new AirConditioner(false), new Light(true, 18, 6));
+	}
+
 	@FXML
 	private Button graphicsView;
 	@FXML
@@ -49,20 +60,19 @@ public class Controller implements Initializable {
 	private Button button;
 	private LineChart.Series<String, Number> series1 = new LineChart.Series<>();
 	private LineChart.Series<String, Number> series2 = new LineChart.Series<>();
-	
-	
+
 	public void graphicsButtonClicked() {
 		graphicsPane.setVisible(true);
 		tablePane.setVisible(false);
 		controllerPane.setVisible(false);
 	}
-	
+
 	public void tableButtonClicked() {
 		graphicsPane.setVisible(false);
 		tablePane.setVisible(true);
 		controllerPane.setVisible(false);
 	}
-	
+
 	public void controllerButtonClicked() {
 		graphicsPane.setVisible(false);
 		tablePane.setVisible(false);
@@ -72,11 +82,11 @@ public class Controller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	final SimpleDateFormat simpleDataFormat = new SimpleDateFormat("HH:mm:ss");
-	
+
 //	ScheduledExecutorService scheduledExecutorService;
 //	scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 //	
@@ -91,17 +101,18 @@ public class Controller implements Initializable {
 //			series2.getData().add(new lineChart2.Data<>(simpleDateFormat.format(now), random));
 //		});
 //	}, 0, 1, TimeUnit.SECONDS);
-	
+
 //	final int WINDOW_SIZE = 10;
-	
+
 //	if (series.getData().size() > WINDOW_SIZE)
 //	    series.getData().remove(0);
 //	
 //	
-	
-	button.setOnAction(e -> {
+
+	button.setOnAction(e->
+	{
 		boolean result = ConfirmBox.display("Title of the Window", "Are you sure you want to send naked pics?");
 		System.out.println(result);
 	});
-	
+
 }
