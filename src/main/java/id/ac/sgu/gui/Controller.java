@@ -29,6 +29,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.*;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import sensor.SensorClass;
 import sensor.Temperature;
 import sensor.Time;
 import sensor.Wind;
@@ -75,39 +76,30 @@ public class Controller implements Initializable {
 	private XYChart.Series<String, Number> series1 = new XYChart.Series<>();
 	private XYChart.Series<String, Number> series2 = new XYChart.Series<>();
 	@FXML
-	private TableView<StartSensor> results;
+	private TableView results = new TableView();
 	@FXML
-	private TableColumn<StartSensor, Time> timeColumn;
+	private TableColumn<SensorClass, String> timeColumn = new TableColumn();
 	@FXML
-	private TableColumn<StartSensor, Wind> windColumn;
+	private TableColumn<SensorClass, String> windColumn = new TableColumn();
 	@FXML
-	private TableColumn<StartSensor, Temperature> temperatureColumn;
+	private TableColumn<SensorClass, String> temperatureColumn = new TableColumn();
 	@FXML
-	private TableColumn<StartSensor, Blinder> blinderColumn;
+	private TableColumn<SensorClass, String> blinderColumn = new TableColumn();
 	@FXML
-	private TableColumn<StartSensor, Light> lightColumn;
+	private TableColumn<SensorClass, String> lightColumn = new TableColumn();
 	@FXML
-	private TableColumn<StartSensor, AirConditioner> airConditionerColumn;
-	
-	timeColumn.setMinWidth(9);
-	timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
-	windColumn.setCellValueFactory(new PropertyValueFactory<>("wind"));
-	temperatureColumn.setCellValueFactory(new PropertyValueFactory<>("temperature"));
-	blinderColumn.setCellValueFactory(new PropertyValueFactory<>("blinder"));
-	lightColumn.setCellValueFactory(new PropertyValueFactory<>("light"));
-	airConditionerColumn.setCellValueFactory(new PropertyValueFactory<>("airConditioner"));
-	
-	
+	private TableColumn<SensorClass, String> airConditionerColumn = new TableColumn<>("Air Conditioner");
+
 	// Get all of the Sensors
-	public ObservableList<StartSensor> getSensor(){
+	public ObservableList<StartSensor> getSensor() {
 		ObservableList<StartSensor> sensors = FXCollections.observableArrayList();
-		while(true) {
-			sensors.add(new StartSensor(sensor.getTime(), sensor.getWind(), sensor.getTemp(), sensor.getBlinder(), sensor.getAirConditioner(), sensor.getLight()));
+		while (true) {
+			sensors.add(new StartSensor(sensor.getTime(), sensor.getWind(), sensor.getTemp(), sensor.getBlinder(),
+					sensor.getAirConditioner(), sensor.getLight()));
 		}
 		return sensors;
 	}
 
-	
 	public void graphicsButtonClicked() {
 		graphicsPane.setVisible(true);
 		tablePane.setVisible(false);
@@ -125,31 +117,47 @@ public class Controller implements Initializable {
 		tablePane.setVisible(false);
 		controllerPane.setVisible(true);
 	}
-	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+
+		ObservableList<SensorClass> data = FXCollections.observableArrayList();
+
+		results.getColumns().addAll(timeColumn, windColumn, temperatureColumn, blinderColumn, lightColumn,
+				airConditionerColumn);
+		timeColumn.setMinWidth(9);
+		timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+		windColumn.setCellValueFactory(new PropertyValueFactory<>("wind"));
+		temperatureColumn.setCellValueFactory(new PropertyValueFactory<>("temperature"));
+		blinderColumn.setCellValueFactory(new PropertyValueFactory<>("blinds"));
+		lightColumn.setCellValueFactory(new PropertyValueFactory<>("light"));
+		airConditionerColumn.setCellValueFactory(new PropertyValueFactory<>("airConditioner"));
 		scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+
+		results.setItems(data);
+
 		lineChart1.getData().add(series1);
 		lineChart2.getData().add(series2);
-		
 
 		scheduledExecutorService.scheduleAtFixedRate(() -> {
 			Integer random = ThreadLocalRandom.current().nextInt(10);
 
 			Platform.runLater(() -> {
 				Date now = new Date();
-				
-				series1.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getWind().getInfo()));
-				series2.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getTemp().getInfo()));
 
-				
-				//Table View
-				results.setItems(getSensor());
-				results.getColumns().addAll(timeColumn, windColumn, temperatureColumn, blinderColumn, lightColumn, airConditionerColumn);
-				
-				
+				series1.getData().add(
+						new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getWind().getInfo()));
+				series2.getData().add(
+						new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getTemp().getInfo()));
+
+				// Table View
+				results.getItems().add(
+						new SensorClass(this.sensor.getTime().getInfo(),
+						this.sensor.getWind().getInfo(), this.sensor.getTemp().getInfo(),
+						this.sensor.getBlinder().getInfo(), this.sensor.getLight().getInfo(),
+						this.sensor.getAirConditioner().getInfo()));
+
 				if (series1.getData().size() > WINDOW_SIZE)
 					series1.getData().remove(0);
 
