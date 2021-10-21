@@ -36,7 +36,6 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 		primaryStage.setTitle("Hello World");
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();
-				
 	}
 	
 	private void closeProgram() {

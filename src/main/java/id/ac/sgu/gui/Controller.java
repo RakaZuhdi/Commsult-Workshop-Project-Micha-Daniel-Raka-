@@ -45,11 +45,11 @@ public class Controller implements Initializable {
 	private NumberAxis yAxis2;
 	@FXML
 	private LineChart<String, Number> lineChart2;
-//	@FXML
-//	private Button button;
-//	private LineChart.Series<String, Number> series1 = new LineChart.Series<>();
-//	private LineChart.Series<String, Number> series2 = new LineChart.Series<>();
-//	
+	@FXML
+	private Button button;
+	private LineChart.Series<String, Number> series1 = new LineChart.Series<>();
+	private LineChart.Series<String, Number> series2 = new LineChart.Series<>();
+	
 	
 	public void graphicsButtonClicked() {
 		graphicsPane.setVisible(true);
@@ -77,20 +77,26 @@ public class Controller implements Initializable {
 	
 	final SimpleDateFormat simpleDataFormat = new SimpleDateFormat("HH:mm:ss");
 	
-	ScheduledExecutorService scheduledExecutorService;
-	scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+//	ScheduledExecutorService scheduledExecutorService;
+//	scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+//	
+//	scheduledExecutorService.scheduleAtFixedRate(() -> {
+//		Integer random = ThreadLocalRandom.current().nextInt(10);
+//		
+//		Platform.runLater(() -> {
+//			lineChart1.getData().add(series1);
+//			lineChart2.getData().add(series2);
+//			Date now = new Date();
+//			series1.getData().add(new lineChart1.Data<>(simpleDateFormat.format(now), random));
+//			series2.getData().add(new lineChart2.Data<>(simpleDateFormat.format(now), random));
+//		});
+//	}, 0, 1, TimeUnit.SECONDS);
 	
-	scheduledExecutorService.scheduleAtFixedRate(() -> {
-		Integer random = ThreadLocalRandom.current().nextInt(10);
-		
-		Platform.runLater(() -> {
-			lineChart1.getData().add(series1);
-			lineChart2.getData().add(series2);
-			Date now = new Date();
-			series1.getData().add(new lineChart1.Data<>(simpleDateFormat.format(now), random));
-			series2.getData().add(new lineChart2.Data<>(simpleDateFormat.format(now), random));
-		});
-	}, 0, 1, TimeUnit.SECONDS);
+//	final int WINDOW_SIZE = 10;
 	
+//	if (series.getData().size() > WINDOW_SIZE)
+//	    series.getData().remove(0);
+//	
+//	
 	
 }
