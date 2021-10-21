@@ -99,4 +99,9 @@ public class Controller implements Initializable {
 //	
 //	
 	
+	button.setOnAction(e -> {
+		boolean result = ConfirmBox.display("Title of the Window", "Are you sure you want to send naked pics?");
+		System.out.println(result);
+	});
+	
 }

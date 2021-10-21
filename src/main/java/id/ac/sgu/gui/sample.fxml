@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: adacb5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.sgu.gui.Controller">
+<VBox fx:id="controllerView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: adacb5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.sgu.gui.Controller">
    <children>
       <Pane prefHeight="474.0" prefWidth="598.0" style="-fx-background-color: adacb5;">
          <children>
@@ -46,12 +46,20 @@
                                     <Font name="Consolas Bold" size="15.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="controllerView" layoutX="11.0" layoutY="134.0" mnemonicParsing="false" onAction="#controllerButtonClicked" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: F95738; -fx-background-radius: 15px; -fx-text-fill: FAF0CA;" styleClass="-choice-button" text="Controller View">
+                              <Button fx:id="button" layoutX="11.0" layoutY="134.0" mnemonicParsing="false" onAction="#controllerButtonClicked" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: F95738; -fx-background-radius: 15px; -fx-text-fill: FAF0CA;" styleClass="-choice-button" text="Controller View">
                                  <padding>
                                     <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                  </padding>
                                  <font>
                                     <Font name="Consolas Bold" size="13.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="button1" layoutX="12.0" layoutY="195.0" mnemonicParsing="false" onAction="#controllerButtonClicked" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: F95738; -fx-background-radius: 15px; -fx-text-fill: FAF0CA;" styleClass="-choice-button" text="Exit">
+                                 <padding>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Consolas Bold" size="16.0" />
                                  </font>
                               </Button>
                            </children>
