@@ -174,7 +174,7 @@ public class Controller implements Initializable {
 		hourY.add(18);
 		hourY.add(15);
 	}
-	
+	/*
 	public void checkBlinds(args args) {
 		if(args args) {
 			blindsIndicatorGreen.setVisible(true);
@@ -207,22 +207,32 @@ public class Controller implements Initializable {
 			airconIndicatorRed.setVisible(true);
 		}
 	}
-	
+	*/
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 
 		ObservableList<SensorClass> data = FXCollections.observableArrayList();
+		int days = 0;
 
 		results.getColumns().addAll(timeColumn, windColumn, temperatureColumn, blinderColumn, lightColumn, airConditionerColumn);
+		
 		timeColumn.setMinWidth(9);
 		timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+		
 		windColumn.setCellValueFactory(new PropertyValueFactory<>("wind"));
+		windColumn.setText("Wind Speed (km/h)");;
+		
 		temperatureColumn.setCellValueFactory(new PropertyValueFactory<>("temperature"));
+		temperatureColumn.setText("Temperature (C)");
+		
 		blinderColumn.setCellValueFactory(new PropertyValueFactory<>("blinds"));
+		
 		lightColumn.setCellValueFactory(new PropertyValueFactory<>("light"));
+		
 		airConditionerColumn.setCellValueFactory(new PropertyValueFactory<>("airConditioner"));
+		
 		scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
 		results.setItems(data);
@@ -265,10 +275,11 @@ public class Controller implements Initializable {
 //				if (i == 11) {
 //					i = 0;
 //				}
-				
+				/*
 				checkBlinds();
 				checkLights();
 				checkAirCon();
+				*/
 				
 				if (series1.getData().size() > WINDOW_SIZE) {
 					series1.getData().remove(0);
