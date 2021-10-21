@@ -14,17 +14,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: adacb5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.sgu.gui.Controller">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="832.0" style="-fx-background-color: adacb5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.sgu.gui.Controller">
    <children>
-      <Pane prefHeight="474.0" prefWidth="598.0" style="-fx-background-color: adacb5;">
+      <Pane prefHeight="579.0" prefWidth="824.0" style="-fx-background-color: adacb5;">
          <children>
-            <SplitPane dividerPositions="0.3" layoutX="9.0" layoutY="11.0" prefHeight="380.0" prefWidth="582.0" scaleShape="false">
+            <SplitPane dividerPositions="0.3" layoutX="10.0" layoutY="11.0" prefHeight="552.0" prefWidth="812.0" scaleShape="false">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="146.0" style="-fx-background-color: 2d3142;">
                      <children>
-                        <Pane layoutX="-5.0" layoutY="-4.0" prefHeight="389.0" prefWidth="180.0" style="-fx-background-color: b0d7ff;">
+                        <Pane layoutX="-5.0" layoutY="-4.0" prefHeight="559.0" prefWidth="253.0" style="-fx-background-color: b0d7ff;">
                            <children>
-                              <Button fx:id="graphicsView" graphicTextGap="5.0" layoutX="15.0" layoutY="24.0" mnemonicParsing="false" onAction="#graphicsButtonClicked" prefHeight="35.0" prefWidth="152.0" style="-fx-background-color: F95738; -fx-background-radius: 15px; -fx-text-fill: FAF0CA;" styleClass="-choice-button" text="Graphics View" wrapText="true">
+                              <Button fx:id="graphicsView" graphicTextGap="5.0" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" onAction="#graphicsButtonClicked" prefHeight="43.0" prefWidth="177.0" style="-fx-background-color: F95738; -fx-background-radius: 15px; -fx-text-fill: FAF0CA;" styleClass="-choice-button" text="Graphics View" wrapText="true">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -32,29 +32,29 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                                  <font>
-                                    <Font name="Consolas Bold" size="15.0" />
+                                    <Font name="Consolas Bold" size="18.0" />
                                  </font>
                                  <padding>
                                     <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                  </padding>
                               </Button>
-                              <Button fx:id="tableView" layoutX="11.0" layoutY="76.0" mnemonicParsing="false" onAction="#tableButtonClicked" prefHeight="29.0" prefWidth="159.0" style="-fx-background-color: F95738; -fx-background-radius: 15px; -fx-text-fill: FAF0CA;" styleClass="-choice-button" text="Table View">
-                                 <padding>
-                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                                 </padding>
-                                 <font>
-                                    <Font name="Consolas Bold" size="15.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="controllerView" layoutX="11.0" layoutY="134.0" mnemonicParsing="false" onAction="#controllerButtonClicked" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: F95738; -fx-background-radius: 15px; -fx-text-fill: FAF0CA;" styleClass="-choice-button" text="Controller View">
+                              <Button fx:id="tableView" layoutX="27.0" layoutY="101.0" mnemonicParsing="false" onAction="#tableButtonClicked" prefHeight="43.0" prefWidth="177.0" style="-fx-background-color: F95738; -fx-background-radius: 15px; -fx-text-fill: FAF0CA;" styleClass="-choice-button" text="Table View">
                                  <padding>
                                     <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                  </padding>
                                  <font>
-                                    <Font name="Consolas Bold" size="13.0" />
+                                    <Font name="Consolas Bold" size="18.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="button" layoutX="12.0" layoutY="195.0" mnemonicParsing="false" onAction="#controllerButtonClicked" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: F95738; -fx-background-radius: 15px; -fx-text-fill: FAF0CA;" styleClass="-choice-button" text="Exit">
+                              <Button fx:id="controllerView" layoutX="27.0" layoutY="168.0" mnemonicParsing="false" onAction="#controllerButtonClicked" prefHeight="43.0" prefWidth="177.0" style="-fx-background-color: F95738; -fx-background-radius: 15px; -fx-text-fill: FAF0CA;" styleClass="-choice-button" text="Controller View">
+                                 <padding>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Consolas Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="button" layoutX="27.0" layoutY="237.0" mnemonicParsing="false" onAction="#controllerButtonClicked" prefHeight="43.0" prefWidth="177.0" style="-fx-background-color: F95738; -fx-background-radius: 15px; -fx-text-fill: FAF0CA;" styleClass="-choice-button" text="Exit">
                                  <padding>
                                     <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                  </padding>
@@ -68,11 +68,11 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="371.0">
                      <children>
-                        <Pane prefHeight="380.0" prefWidth="404.0" style="-fx-background-color: F4D35E;">
+                        <Pane prefHeight="552.0" prefWidth="565.0" style="-fx-background-color: F4D35E;">
                            <children>
-                              <Pane fx:id="graphicsPane" layoutX="5.0" layoutY="10.0" opacity="0.75" prefHeight="360.0" prefWidth="394.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 15px;">
+                              <Pane fx:id="graphicsPane" layoutX="5.0" layoutY="10.0" opacity="0.75" prefHeight="528.0" prefWidth="552.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 15px;">
                                  <children>
-                                    <LineChart fx:id="lineChart1" layoutY="14.0" prefHeight="107.0" prefWidth="139.0" title="Wind">
+                                    <LineChart fx:id="lineChart1" layoutY="20.0" prefHeight="201.0" prefWidth="278.0" title="Wind">
                                       <xAxis>
                                         <CategoryAxis side="BOTTOM" fx:id="xAxis1" />
                                       </xAxis>
@@ -80,7 +80,7 @@
                                         <NumberAxis fx:id="yAxis1" label="Wind" side="LEFT" />
                                       </yAxis>
                                     </LineChart>
-                                    <LineChart fx:id="lineChart2" layoutX="194.0" layoutY="14.0" prefHeight="130.0" prefWidth="180.0" title="Temperature">
+                                    <LineChart fx:id="lineChart2" layoutX="276.0" layoutY="20.0" prefHeight="201.0" prefWidth="278.0" title="Temperature">
                                        <xAxis>
                                           <CategoryAxis side="BOTTOM" fx:id="xAxis2" />
                                        </xAxis>
