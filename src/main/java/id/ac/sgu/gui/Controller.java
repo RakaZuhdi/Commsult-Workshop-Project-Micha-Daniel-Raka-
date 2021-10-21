@@ -27,13 +27,15 @@ import javafx.util.Duration;
 import sensor.Temperature;
 import sensor.Time;
 import sensor.Wind;
-import World.StartSensor;
+import world.StartSensor;
 
 public class Controller implements Initializable {
+	private StartSensor sensor;
 
-//	public Controller() {
-//		StartSensor start = new StartSensor(new Time(0), new Wind(0, 90, 72), new Temperature(0, 40, 20), new Blinder(false), new AirConditioner(false), new Light(true, 18, 6));
-//	}
+	public Controller() {
+		this.sensor = new StartSensor(new Time(0), new Wind(0, 90, 72), new Temperature(0, 40, 20), new Blinder(false), new AirConditioner(false), new Light(true, 18, 6));
+		this.sensor.start();
+	}
 
 	private ScheduledExecutorService scheduledExecutorService;
 	final int WINDOW_SIZE = 10;
@@ -97,8 +99,8 @@ public class Controller implements Initializable {
 				lineChart1.getData().add(series1);
 				lineChart2.getData().add(series2);
 				Date now = new Date();
-				series1.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), random));
-				series2.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), random));
+				series1.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getWind().getInfo()));
+				series2.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getTemp().getInfo()));
 				
 				if (series1.getData().size() > WINDOW_SIZE)
 				    series1.getData().remove(0);
