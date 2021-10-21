@@ -8,6 +8,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
 
 import actor.AirConditioner;
 import actor.Blinder;
@@ -28,6 +29,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.*;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import sensor.SensorClass;
 import sensor.Temperature;
@@ -117,6 +119,45 @@ public class Controller implements Initializable {
 		tablePane.setVisible(false);
 		controllerPane.setVisible(true);
 	}
+	
+	public void setHourPos() {
+		hourX.add(119);
+		hourX.add(135);
+		hourX.add(138);
+		hourX.add(130);
+		
+		hourX.add(117);
+		hourX.add(93);
+		hourX.add(73);
+		hourX.add(60);
+		
+		hourX.add(52);
+		hourX.add(56);
+		hourX.add(70);
+		hourX.add(93);
+		
+		hourY.add(18);
+		hourY.add(37);
+		hourY.add(57);
+		hourY.add(77);
+		
+		hourY.add(85);
+		hourY.add(98);
+		hourY.add(87);
+		hourY.add(77);
+		
+		hourY.add(57);
+		hourY.add(37);
+		hourY.add(18);
+		hourY.add(15);
+	}
+	
+	public void hourMoves(int i) {
+		int TIMELINE_X_END = hourX.get(i);
+		int TIMELINE_Y_END = hourY.get(i);
+		hourHand.setEndX(TIMELINE_X_END);
+		hourHand.setEndY(TIMELINE_Y_END);
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -158,6 +199,24 @@ public class Controller implements Initializable {
 						this.sensor.getBlinder().getInfo(), this.sensor.getLight().getInfo(),
 						this.sensor.getAirConditioner().getInfo()));
 
+				
+				series1.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getWind().getInfo()));
+				series2.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getTemp().getInfo()));
+
+				
+				//Table View
+//				results.setItems(getSensor());
+//				results.getColumns().addAll(timeColumn, windColumn, temperatureColumn, blinderColumn, lightColumn, airConditionerColumn);
+//				
+				
+				//Analog clock View
+				int i = 0;
+				hourMoves(i);
+				i++;
+				if(i == 11) {
+					i = 0;
+				}
+				
 				if (series1.getData().size() > WINDOW_SIZE)
 					series1.getData().remove(0);
 
