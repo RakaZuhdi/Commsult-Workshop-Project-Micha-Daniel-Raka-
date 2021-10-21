@@ -1,4 +1,4 @@
-package world;
+package World;
 
 import actor.*;
 import sensor.*;

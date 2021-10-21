@@ -1,4 +1,4 @@
-package world;
+package World;
 
 import java.util.Timer;
 import java.util.TimerTask;
