@@ -94,17 +94,15 @@ public class Controller implements Initializable {
 		scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 		lineChart1.getData().add(series1);
 		lineChart2.getData().add(series2);
-		
 
 		scheduledExecutorService.scheduleAtFixedRate(() -> {
 			Integer random = ThreadLocalRandom.current().nextInt(10);
+			series1.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getWind().getInfo()));
+			series2.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getTemp().getInfo()));
+
 
 			Platform.runLater(() -> {
 				Date now = new Date();
-				
-				series1.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getWind().getInfo()));
-				series2.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getTemp().getInfo()));
-
 				
 				if (series1.getData().size() > WINDOW_SIZE)
 					series1.getData().remove(0);
