@@ -211,7 +211,7 @@ public class Controller implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		setHourPos();
 
 		ObservableList<SensorClass> data = FXCollections.observableArrayList();
 		int days = 0;
@@ -269,12 +269,12 @@ public class Controller implements Initializable {
 //				
 				
 				//Analog clock View
-//				hourHand.setEndX(hourX.get(i));
-//				hourHand.setEndY(hourY.get(i));
-//				i = i++;
-//				if (i == 11) {
-//					i = 0;
-//				}
+				
+				
+				hourHand.setEndX(hourX.get(i));
+				hourHand.setEndY(hourY.get(i));
+				i = i == 11? 0 : i+1;
+				
 				/*
 				checkBlinds();
 				checkLights();
