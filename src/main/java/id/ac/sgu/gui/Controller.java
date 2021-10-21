@@ -33,13 +33,14 @@ public class Controller implements Initializable {
 	private StartSensor sensor;
 
 	public Controller() {
-		this.sensor = new StartSensor(new Time(0), new Wind(0, 90, 72), new Temperature(0, 40, 20), new Blinder(false), new AirConditioner(false), new Light(true, 18, 6));
+		this.sensor = new StartSensor(new Time(0), new Wind(0, 90, 72), new Temperature(0, 40, 20), new Blinder(false),
+				new AirConditioner(false), new Light(true, 18, 6));
 		this.sensor.start();
 	}
 
 	private ScheduledExecutorService scheduledExecutorService;
 	final int WINDOW_SIZE = 10;
-	final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");	
+	final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
 	@FXML
 	private Button graphicsView;
 	@FXML
@@ -91,27 +92,29 @@ public class Controller implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+		lineChart1.getData().add(series1);
+		lineChart2.getData().add(series2);
 		
+
 		scheduledExecutorService.scheduleAtFixedRate(() -> {
 			Integer random = ThreadLocalRandom.current().nextInt(10);
-			
+
 			Platform.runLater(() -> {
-				lineChart1.getData().add(series1);
-				lineChart2.getData().add(series2);
 				Date now = new Date();
+				
 				series1.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getWind().getInfo()));
 				series2.getData().add(new XYChart.Data<>(String.valueOf(sensor.getTime().getInfo()), sensor.getTemp().getInfo()));
+
 				
 				if (series1.getData().size() > WINDOW_SIZE)
-				    series1.getData().remove(0);
-				
+					series1.getData().remove(0);
+
 				if (series2.getData().size() > WINDOW_SIZE)
-				    series2.getData().remove(0);
+					series2.getData().remove(0);
+
 			});
-		}, 0, 1, TimeUnit.SECONDS);	
+		}, 0, 1, TimeUnit.SECONDS);
 
 	}
-	
-	
-	
+
 }
