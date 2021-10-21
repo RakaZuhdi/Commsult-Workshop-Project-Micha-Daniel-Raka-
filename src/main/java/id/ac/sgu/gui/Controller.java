@@ -19,6 +19,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
@@ -28,6 +29,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
@@ -105,24 +107,16 @@ public class Controller implements Initializable {
 	
 	@FXML
 	private Line hourHand;
-	@FXML
-	private Line xxx;
 	private ArrayList<Integer> hourX = new ArrayList<Integer>();
 	private ArrayList<Integer> hourY = new ArrayList<Integer>();
 	private int i = 0;
 	
-	@FXML
-	private ImageView blindsIndicatorGreen;
-	@FXML
-	private ImageView lightsIndicatorGreen;
-	@FXML
-	private ImageView airconIndicatorGreen;
-	@FXML
-	private ImageView blindsIndicatorRed;
-	@FXML
-	private ImageView lightsIndicatorRed;
-	@FXML
-	private ImageView airconIndicatorRed;
+	private ImageView blindsIndicatorGreen = new ImageView(new Image(getClass().getResourceAsStream("pngegg.png")));
+	private ImageView lightsIndicatorGreen = new ImageView(new Image(getClass().getResourceAsStream("pngegg.png")));
+	private ImageView airconIndicatorGreen = new ImageView(new Image(getClass().getResourceAsStream("pngegg.png")));
+	private ImageView blindsIndicatorRed = new ImageView(new Image(getClass().getResourceAsStream("png-clipart-traffic-light-computer-icons-red-red-light-color-light.png")));
+	private ImageView lightsIndicatorRed = new ImageView(new Image(getClass().getResourceAsStream("png-clipart-traffic-light-computer-icons-red-red-light-color-light.png")));
+	private ImageView airconIndicatorRed = new ImageView(new Image(getClass().getResourceAsStream("png-clipart-traffic-light-computer-icons-red-red-light-color-light.png")));
 	
 
 	public void graphicsButtonClicked() {
@@ -174,40 +168,72 @@ public class Controller implements Initializable {
 		hourY.add(18);
 		hourY.add(15);
 	}
-	/*
-	public void checkBlinds(args args) {
-		if(args args) {
+	
+	public void addImages() {
+		blindsIndicatorGreen.setX(50); 
+	    blindsIndicatorGreen.setY(25); 
+	    blindsIndicatorGreen.setFitHeight(71); 
+	    blindsIndicatorGreen.setFitWidth(71); 
+	    blindsIndicatorGreen.setPreserveRatio(true);
+	    
+	    lightsIndicatorGreen.setX(50); 
+	    lightsIndicatorGreen.setY(25); 
+	    lightsIndicatorGreen.setFitHeight(71); 
+	    lightsIndicatorGreen.setFitWidth(71); 
+	    lightsIndicatorGreen.setPreserveRatio(true);
+	    
+	    airconIndicatorGreen.setX(50); 
+	    airconIndicatorGreen.setY(25); 
+	    airconIndicatorGreen.setFitHeight(71); 
+	    airconIndicatorGreen.setFitWidth(71); 
+	    airconIndicatorGreen.setPreserveRatio(true);
+	    
+	    blindsIndicatorRed.setX(50); 
+	    blindsIndicatorRed.setY(25); 
+	    blindsIndicatorRed.setFitHeight(71); 
+	    blindsIndicatorRed.setFitWidth(71); 
+	    blindsIndicatorRed.setPreserveRatio(true);
+	    
+	    lightsIndicatorRed.setX(50); 
+	    lightsIndicatorRed.setY(25); 
+	    lightsIndicatorRed.setFitHeight(71); 
+	    lightsIndicatorRed.setFitWidth(71); 
+	    lightsIndicatorRed.setPreserveRatio(true);
+	    
+	    airconIndicatorRed.setX(50); 
+	    airconIndicatorRed.setY(25); 
+	    airconIndicatorRed.setFitHeight(71); 
+	    airconIndicatorRed.setFitWidth(71); 
+	    airconIndicatorRed.setPreserveRatio(true);
+	    Group root = new Group(blindsIndicatorGreen);
+	}
+	
+	public void checkBlinds(Boolean active) {
+		if(active == true) {
 			blindsIndicatorGreen.setVisible(true);
-			blindsIndicatorRed.setVisible(false);
 		}
 		else {
 			blindsIndicatorGreen.setVisible(false);
-			blindsIndicatorRed.setVisible(true);
 		}
 	}
 	
-	public void checkLights() {
-		if(args args) {
+	public void checkLights(Boolean active) {
+		if(active == true) {
 			lightsIndicatorGreen.setVisible(true);
-			lightsIndicatorRed.setVisible(false);
 		}
 		else {
 			lightsIndicatorGreen.setVisible(false);
-			lightsIndicatorRed.setVisible(true);
 		}
 	}
 	
-	public void checkAirCon() {
-		if(args args) {
+	public void checkAirCon(Boolean active) {
+		if(active == true) {
 			airconIndicatorGreen.setVisible(true);
-			airconIndicatorRed.setVisible(false);
 		}
 		else {
-			airconIndicatorGreen.setVisible(false);
-			airconIndicatorRed.setVisible(true);
-		}
+			airconIndicatorGreen.setVisible(false);		}
 	}
-	*/
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

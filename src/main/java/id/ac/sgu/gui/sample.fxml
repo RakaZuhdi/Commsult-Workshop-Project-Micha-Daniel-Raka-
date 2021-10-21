@@ -108,7 +108,7 @@
                                           <Line endX="-147.99998474121094" endY="23.199996948242188" layoutX="248.0" layoutY="-6.0" startX="-147.99998474121094" startY="7.0" stroke="WHITE" strokeWidth="3.0" />
                                           <Line endX="165.40003967285156" endY="50.4000244140625" layoutX="10.0" layoutY="10.0" startX="176.59999084472656" startY="43.20001220703125" stroke="WHITE" strokeWidth="3.0" />
                                           <Line endX="94.40003967285156" endY="384.0" layoutX="-39.0" layoutY="-214.0" startX="85.59999084472656" startY="396.0" stroke="WHITE" strokeWidth="3.0" />
-                                          <Line fx:id="hourHand" endX="143.40000915527344" endY="57.600067138671875" layoutX="4.0" layoutY="45.0" startX="93.20002746582031" startY="57.60003662109375" stroke="WHITE" strokeWidth="5.0">
+                                          <Line fx:id="hourHand" endX="140.2000274658203" endY="57.60003662109375" layoutX="4.0" layoutY="45.0" startX="93.20002746582031" startY="57.60003662109375" stroke="WHITE" strokeWidth="5.0">
                                              <cursor>
                                                 <Cursor fx:constant="MOVE" />
                                              </cursor></Line>
