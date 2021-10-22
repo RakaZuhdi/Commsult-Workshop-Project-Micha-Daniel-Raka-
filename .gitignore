@@ -7,3 +7,4 @@ bin
 src/main/java/world/WorldRunner
 /.apt_generated/
 /.apt_generated_tests/
+pom.xml

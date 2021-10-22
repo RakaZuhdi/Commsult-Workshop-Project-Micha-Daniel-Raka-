@@ -6,6 +6,7 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -15,6 +16,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
@@ -118,36 +122,144 @@
                                     <Label layoutX="311.0" layoutY="340.0" text="Blinds" />
                                     <Label layoutX="463.0" layoutY="340.0" text="Lights" />
                                     <Label layoutX="367.0" layoutY="491.0" text="Air Conditioner" />
-                                    <ImageView fx:id="blindsIndicatorRed" fitHeight="71.0" fitWidth="71.0" layoutX="291.0" layoutY="239.0">
+                                    <ImageView fitHeight="71.0" fitWidth="71.0" layoutX="372.0" layoutY="393.0">
                                        <image>
-                                          <Image url="@../../../../../../../assets/png-clipart-traffic-light-computer-icons-red-red-light-color-light.png" />
+                                          <Image url="@assets/png-clipart-traffic-light-computer-icons-red-red-light-color-light.png" />
                                        </image>
                                     </ImageView>
-                                    <ImageView fx:id="airconIndicatorRed" fitHeight="71.0" fitWidth="71.0" layoutX="372.0" layoutY="393.0">
+                                    <ImageView fitHeight="71.0" fitWidth="71.0" layoutX="443.0" layoutY="239.0">
                                        <image>
-                                          <Image url="@../../../../../../../assets/png-clipart-traffic-light-computer-icons-red-red-light-color-light.png" />
+                                          <Image url="@assets/png-clipart-traffic-light-computer-icons-red-red-light-color-light.png" />
                                        </image>
                                     </ImageView>
-                                    <ImageView fx:id="lightsIndicatorRed" fitHeight="71.0" fitWidth="71.0" layoutX="443.0" layoutY="239.0">
+                                    <ImageView fitHeight="71.0" fitWidth="71.0" layoutX="291.0" layoutY="239.0">
                                        <image>
-                                          <Image url="@../../../../../../../assets/png-clipart-traffic-light-computer-icons-red-red-light-color-light.png" />
+                                          <Image url="@assets/png-clipart-traffic-light-computer-icons-red-red-light-color-light.png" />
                                        </image>
                                     </ImageView>
-                                    <ImageView fx:id="blindsIndicatorGreen" fitHeight="71.0" fitWidth="71.0" layoutX="291.0" layoutY="239.0">
+                                    <ImageView fitHeight="71.0" fitWidth="71.0" layoutX="372.0" layoutY="393.0">
                                        <image>
-                                          <Image url="@../../../../../../../assets/pngegg.png" />
+                                          <Image url="@assets/pngegg.png" />
                                        </image>
                                     </ImageView>
-                                    <ImageView fx:id="airconIndicatorGreen" fitHeight="71.0" fitWidth="71.0" layoutX="372.0" layoutY="393.0">
+                                    <ImageView fitHeight="71.0" fitWidth="71.0" layoutX="443.0" layoutY="239.0">
                                        <image>
-                                          <Image url="@../../../../../../../assets/pngegg.png" />
+                                          <Image url="@assets/pngegg.png" />
                                        </image>
                                     </ImageView>
-                                    <ImageView fx:id="lightsIndicatorGreen" fitHeight="71.0" fitWidth="71.0" layoutX="443.0" layoutY="239.0">
+                                    <ImageView fitHeight="71.0" fitWidth="71.0" layoutX="291.0" layoutY="239.0">
                                        <image>
-                                          <Image url="@../../../../../../../assets/pngegg.png" />
+                                          <Image url="@assets/pngegg.png" />
                                        </image>
                                     </ImageView>
+                                    <Circle fx:id="blindsIndicatorGreen" layoutX="327.0" layoutY="275.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
+                                       <fill>
+                                          <LinearGradient endX="0.32196969330085046" endY="0.04166660886822325" startX="0.45075761188160285" startY="0.5492423935370011">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.21122807264328003" green="0.9052631855010986" blue="1.0050440318888339E-16" opacity="0.7300000190734863" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </fill>
+                                    </Circle>
+                                    <Circle fx:id="lightsIndicatorGreen" layoutX="479.0" layoutY="275.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
+                                       <fill>
+                                          <LinearGradient endX="0.32196969330085046" endY="0.04166660886822325" startX="0.45075761188160285" startY="0.5492423935370011">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.21122807264328003" green="0.9052631855010986" blue="1.0050440318888339E-16" opacity="0.7300000190734863" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </fill>
+                                    </Circle>
+                                    <Circle fx:id="airconIndicatorGreen" layoutX="407.0" layoutY="428.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
+                                       <fill>
+                                          <LinearGradient endX="0.32196969330085046" endY="0.04166660886822325" startX="0.45075761188160285" startY="0.5492423935370011">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.21122807264328003" green="0.9052631855010986" blue="1.0050440318888339E-16" opacity="0.7300000190734863" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </fill>
+                                    </Circle>
+                                    <Circle fx:id="blindsIndicatorRed" layoutX="327.0" layoutY="275.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
+                                       <fill>
+                                          <LinearGradient endX="0.32196969330085046" endY="0.04166660886822325" startX="0.45075761188160285" startY="0.5492423935370011">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.8899999856948853" green="0.008899999782443047" blue="0.008899999782443047" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </fill>
+                                    </Circle>
+                                    <Circle fx:id="lightsIndicatorRed" layoutX="479.0" layoutY="275.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
+                                       <fill>
+                                          <LinearGradient endX="0.32196969330085046" endY="0.04166660886822325" startX="0.45075761188160285" startY="0.5492423935370011">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.8899999856948853" green="0.008899999782443047" blue="0.008899999782443047" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </fill>
+                                    </Circle>
+                                    <Circle fx:id="airconIndicatorRed" layoutX="408.0" layoutY="428.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
+                                       <fill>
+                                          <LinearGradient endX="0.32196969330085046" endY="0.04166660886822325" startX="0.45075761188160285" startY="0.5492423935370011">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.8899999856948853" green="0.008899999782443047" blue="0.008899999782443047" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </fill>
+                                    </Circle>
                                  </children>
                               </Pane>
                               <Pane fx:id="tablePane" layoutX="9.0" layoutY="10.0" opacity="0.75" prefHeight="528.0" prefWidth="545.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 15px;" visible="false">
@@ -164,7 +276,11 @@
                                     </TableView>
                                  </children>
                               </Pane>
-                              <Pane fx:id="controllerPane" opacity="0.75" prefHeight="360.0" prefWidth="394.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 15px;" visible="false" />
+                              <Pane fx:id="controllerPane" layoutX="6.0" layoutY="6.0" opacity="0.75" prefHeight="538.0" prefWidth="552.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 15px;" visible="false">
+                                 <children>
+                                    <CheckBox layoutX="49.0" layoutY="52.0" mnemonicParsing="false" text="Temperature" />
+                                    <CheckBox layoutX="50.0" layoutY="112.0" mnemonicParsing="false" text="Wind Speed" />
+                                 </children></Pane>
                            </children>
                         </Pane>
                      </children>

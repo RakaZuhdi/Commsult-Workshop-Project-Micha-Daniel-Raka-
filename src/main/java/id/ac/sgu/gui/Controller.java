@@ -32,6 +32,7 @@ import javafx.scene.control.cell.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import sensor.SensorClass;
@@ -111,12 +112,18 @@ public class Controller implements Initializable {
 	private ArrayList<Integer> hourY = new ArrayList<Integer>();
 	private int i = 0;
 	
-	private ImageView blindsIndicatorGreen = new ImageView(new Image(getClass().getResourceAsStream("pngegg.png")));
-	private ImageView lightsIndicatorGreen = new ImageView(new Image(getClass().getResourceAsStream("pngegg.png")));
-	private ImageView airconIndicatorGreen = new ImageView(new Image(getClass().getResourceAsStream("pngegg.png")));
-	private ImageView blindsIndicatorRed = new ImageView(new Image(getClass().getResourceAsStream("png-clipart-traffic-light-computer-icons-red-red-light-color-light.png")));
-	private ImageView lightsIndicatorRed = new ImageView(new Image(getClass().getResourceAsStream("png-clipart-traffic-light-computer-icons-red-red-light-color-light.png")));
-	private ImageView airconIndicatorRed = new ImageView(new Image(getClass().getResourceAsStream("png-clipart-traffic-light-computer-icons-red-red-light-color-light.png")));
+	@FXML
+	private Circle blindsIndicatorGreen;
+	@FXML
+	private Circle lightsIndicatorGreen;
+	@FXML
+	private Circle airconIndicatorGreen;
+	@FXML
+	private Circle blindsIndicatorRed;
+	@FXML
+	private Circle lightsIndicatorRed;
+	@FXML
+	private Circle airconIndicatorRed;
 	
 
 	public void graphicsButtonClicked() {
@@ -135,6 +142,10 @@ public class Controller implements Initializable {
 		graphicsPane.setVisible(false);
 		tablePane.setVisible(false);
 		controllerPane.setVisible(true);
+	}
+	
+	public void exitButtonClicked() {
+		
 	}
 	
 	public void setHourPos() {
@@ -169,69 +180,32 @@ public class Controller implements Initializable {
 		hourY.add(15);
 	}
 	
-	public void addImages() {
-		blindsIndicatorGreen.setX(50); 
-	    blindsIndicatorGreen.setY(25); 
-	    blindsIndicatorGreen.setFitHeight(71); 
-	    blindsIndicatorGreen.setFitWidth(71); 
-	    blindsIndicatorGreen.setPreserveRatio(true);
-	    
-	    lightsIndicatorGreen.setX(50); 
-	    lightsIndicatorGreen.setY(25); 
-	    lightsIndicatorGreen.setFitHeight(71); 
-	    lightsIndicatorGreen.setFitWidth(71); 
-	    lightsIndicatorGreen.setPreserveRatio(true);
-	    
-	    airconIndicatorGreen.setX(50); 
-	    airconIndicatorGreen.setY(25); 
-	    airconIndicatorGreen.setFitHeight(71); 
-	    airconIndicatorGreen.setFitWidth(71); 
-	    airconIndicatorGreen.setPreserveRatio(true);
-	    
-	    blindsIndicatorRed.setX(50); 
-	    blindsIndicatorRed.setY(25); 
-	    blindsIndicatorRed.setFitHeight(71); 
-	    blindsIndicatorRed.setFitWidth(71); 
-	    blindsIndicatorRed.setPreserveRatio(true);
-	    
-	    lightsIndicatorRed.setX(50); 
-	    lightsIndicatorRed.setY(25); 
-	    lightsIndicatorRed.setFitHeight(71); 
-	    lightsIndicatorRed.setFitWidth(71); 
-	    lightsIndicatorRed.setPreserveRatio(true);
-	    
-	    airconIndicatorRed.setX(50); 
-	    airconIndicatorRed.setY(25); 
-	    airconIndicatorRed.setFitHeight(71); 
-	    airconIndicatorRed.setFitWidth(71); 
-	    airconIndicatorRed.setPreserveRatio(true);
-	    Group root = new Group(blindsIndicatorGreen);
-	}
 	
 	public void checkBlinds(Boolean active) {
 		if(active == true) {
-			blindsIndicatorGreen.setVisible(true);
+			blindsIndicatorRed.setVisible(false);
 		}
 		else {
-			blindsIndicatorGreen.setVisible(false);
+			blindsIndicatorRed.setVisible(true);
 		}
 	}
 	
 	public void checkLights(Boolean active) {
 		if(active == true) {
-			lightsIndicatorGreen.setVisible(true);
+			lightsIndicatorRed.setVisible(false);
 		}
 		else {
-			lightsIndicatorGreen.setVisible(false);
+			lightsIndicatorRed.setVisible(true);
 		}
 	}
 	
 	public void checkAirCon(Boolean active) {
 		if(active == true) {
-			airconIndicatorGreen.setVisible(true);
+			airconIndicatorRed.setVisible(false);
 		}
 		else {
-			airconIndicatorGreen.setVisible(false);		}
+			airconIndicatorRed.setVisible(true);		
+		}
 	}
 	
 
@@ -295,17 +269,15 @@ public class Controller implements Initializable {
 //				
 				
 				//Analog clock View
-				
-				
 				hourHand.setEndX(hourX.get(i));
 				hourHand.setEndY(hourY.get(i));
 				i = i == 11? 0 : i+1;
 				
-				/*
-				checkBlinds();
-				checkLights();
-				checkAirCon();
-				*/
+				//Lights Indicator
+				checkBlinds(sensor.getLight().getStatus());
+				checkLights(sensor.getLight().getStatus());
+				checkAirCon(sensor.getAirConditioner().getStatus());
+				
 				
 				if (series1.getData().size() > WINDOW_SIZE) {
 					series1.getData().remove(0);
