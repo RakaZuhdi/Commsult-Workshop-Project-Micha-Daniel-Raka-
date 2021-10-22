@@ -285,7 +285,7 @@ public class Controller implements Initializable {
 				i = i == 11? 0 : i+1;
 				
 				//Lights Indicator
-				checkBlinds(sensor.getLight().getStatus());
+				checkBlinds(sensor.getBlinder().getStatus());
 				checkLights(sensor.getLight().getStatus());
 				checkAirCon(sensor.getAirConditioner().getStatus());
 				
