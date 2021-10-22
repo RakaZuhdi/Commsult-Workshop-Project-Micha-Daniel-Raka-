@@ -145,6 +145,7 @@ public class Controller implements Initializable {
 	}
 	
 	public void closeButtonAction() {
+		sensor.stop();
 		Stage stage = (Stage) exitView.getScene().getWindow();
 		stage.close();
 	}
@@ -210,13 +211,13 @@ public class Controller implements Initializable {
 	}
 	
 	public void deactivateBlinders() {
-		this.sensor.getBlinder().setActive(false);
+		this.sensor.getBlinder().disable();
 	}
 	public void deactivateLights() {
-		this.sensor.getLight().setActive(false);
+		this.sensor.getLight().disable();
 	}
 	public void deactivateAirCon() {
-		this.sensor.getAirConditioner().setActive(false);
+		this.sensor.getAirConditioner().disable();
 	}
 	
 

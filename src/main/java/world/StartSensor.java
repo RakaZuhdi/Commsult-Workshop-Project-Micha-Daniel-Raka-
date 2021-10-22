@@ -30,6 +30,11 @@ public class StartSensor extends TimerTask {
 	public void start() {
 		timer.schedule(this, 0, 1000);
 	}
+	
+	public void stop() {
+		timer.cancel();
+	}
+	
 
 	public void run() {
 		update();

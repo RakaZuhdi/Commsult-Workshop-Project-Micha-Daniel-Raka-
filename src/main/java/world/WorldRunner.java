@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 
 public class WorldRunner extends Application implements EventHandler<ActionEvent> {
 	public static void main(String[] args) {
-		System.out.println("Test 12");
+		
 		launch(args);
 		
 	}
