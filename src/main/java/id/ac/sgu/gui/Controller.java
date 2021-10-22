@@ -26,6 +26,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.*;
@@ -34,6 +35,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import sensor.SensorClass;
 import sensor.Temperature;
@@ -60,6 +62,8 @@ public class Controller implements Initializable {
 	@FXML
 	private Button controllerView;
 	@FXML
+	private Button exitView;
+	@FXML
 	private Pane graphicsPane;
 	@FXML
 	private Pane tablePane;
@@ -77,8 +81,6 @@ public class Controller implements Initializable {
 	private NumberAxis yAxis2;
 	@FXML
 	private LineChart<String, Number> lineChart2;
-	@FXML
-	private Button exitButton;
 	private XYChart.Series<String, Number> series1 = new XYChart.Series<>();
 	private XYChart.Series<String, Number> series2 = new XYChart.Series<>();
 	@FXML
@@ -125,6 +127,14 @@ public class Controller implements Initializable {
 	@FXML
 	private Circle airconIndicatorRed;
 	
+	@FXML
+	private CheckBox blindersCheck;
+	@FXML
+	private CheckBox lightsCheck;
+	@FXML
+	private CheckBox airConCheck;
+	
+	
 
 	public void graphicsButtonClicked() {
 		graphicsPane.setVisible(true);
@@ -144,8 +154,9 @@ public class Controller implements Initializable {
 		controllerPane.setVisible(true);
 	}
 	
-	public void exitButtonClicked() {
-		
+	public void closeButtonAction() {
+		Stage stage = (Stage) exitView.getScene().getWindow();
+		stage.close();
 	}
 	
 	public void setHourPos() {
@@ -206,6 +217,16 @@ public class Controller implements Initializable {
 		else {
 			airconIndicatorRed.setVisible(true);		
 		}
+	}
+	
+	public void deactivateBlinders() {
+		
+	}
+	public void deactivateLights() {
+		
+	}
+	public void deactivateAirCon() {
+		
 	}
 	
 
