@@ -97,16 +97,6 @@ public class Controller implements Initializable {
 	private TableColumn<SensorClass, String> lightColumn = new TableColumn();
 	@FXML
 	private TableColumn<SensorClass, String> airConditionerColumn = new TableColumn<>("Air Conditioner");
-
-	// Get all of the Sensors
-	public ObservableList<StartSensor> getSensor() {
-		ObservableList<StartSensor> sensors = FXCollections.observableArrayList();
-		while (true) {
-			sensors.add(new StartSensor(sensor.getTime(), sensor.getWind(), sensor.getTemp(), sensor.getBlinder(),
-					sensor.getAirConditioner(), sensor.getLight()));
-		}
-		return sensors;
-	}
 	
 	@FXML
 	private Line hourHand;
