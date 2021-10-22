@@ -210,13 +210,13 @@ public class Controller implements Initializable {
 	}
 	
 	public void deactivateBlinders() {
-		
+		this.sensor.getBlinder().setActive(false);
 	}
 	public void deactivateLights() {
-		
+		this.sensor.getLight().setActive(false);
 	}
 	public void deactivateAirCon() {
-		
+		this.sensor.getAirConditioner().setActive(false);
 	}
 	
 
