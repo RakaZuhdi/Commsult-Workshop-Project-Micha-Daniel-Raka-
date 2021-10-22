@@ -9,10 +9,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import actor.Light;
+import sensor.Time;
+
 class TestDemoTest {
 
 	@TestSubject
-	private TestDemo test = new TestDemo();
+	private Light lightTest = new Light(true, 18, 6);
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,10 +34,11 @@ class TestDemoTest {
 	}
 
 	@Test
-	void test() {
+	void isLightOnAtNight() {
 
-		int result = test.calc(2, 3);
-		assertEquals(5, result);
+		lightTest.checkStatus(new Time(20));
+		Boolean result = lightTest.getStatus();
+		assertEquals(true, result);
 	}
 
 }
